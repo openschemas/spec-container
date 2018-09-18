@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<h1>{{ page.name }}</h1>
+<p><strong>Dates:</strong> {{page.start_date | date_to_long_string}} To {{page.end_date | date_to_long_string}}</p>
+<p><strong>Venue:</strong> {{page.venue}}</p>
+
+{% if page.contact-people %}
+<strong>Contacts:</strong>
+<ul>
+  {% for contact-person in page.contact-people %}
+  {% assign person-id = "/people/" | append: contact-person %}
+  {% assign person = site.people | where:"id", person-id | first%}
+  <li><a href="{{ person.url }}">{{person.first-name}} {{person.last-name}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if page.meeting-url %}
+  <p><strong>Meeting page:</strong> <a href="{{page.meeting-url}}">{{page.meeting-url}}</a></p>
+{% endif %}
+{% if page.agenda-doc %}
+  <p><strong>Agenda:</strong> <a href="{{page.agenda-doc}}">Meeting Notes</a></p>
+{% endif %}
+{{ content }}
+
+{% if page.attendees %}
+<strong>Attendees:</strong>
+<ul>
+  {% for attendee-name in page.attendees %}
+  {% assign attendee-id = "/people/" | append: attendee-name %}
+  {% assign attendee = site.people | where:"id", attendee-id | first %}
+  {% if attendee %}
+  <li><a href="{{ attendee.url }}">{{attendee.first-name}} {{attendee.last-name}}</a></li>
+  {% else %}
+  <li>{{attendee-name}}</li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
