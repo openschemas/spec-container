@@ -236,8 +236,6 @@ mapping:
   type_url: ''
 name: DataCatalog
 parent_type: CreativeWork
-permalink: specifications/DataCatalog
-redirect_from: specifications/DataCatalog
 spec_info:
   description: A guide for how to describe data catalogs/repositories in the life-sciences
     using Schema.org-like annotation.

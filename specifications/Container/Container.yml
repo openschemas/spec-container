@@ -320,8 +320,6 @@ mapping:
   type_url: ''
 name: Container
 parent_type: SoftwareApplication
-permalink: specifications/Container
-redirect_from: specifications/Container
 spec_info:
   description: This Container profile specification presents a representation of a
     Container such as Docker or Singularity that is used in scientific compute.
