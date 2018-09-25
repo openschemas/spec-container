@@ -1,9 +1,16 @@
----
-description: This Container profile specification presents a representation of a Container
-  such as Docker or Singularity that is used in scientific compute.
-edit_url: https://github.com/openschemas/specifications/tree/master/Container/specification.html
+name: Container
+status: revision
+spec_type: Profile
 gh_folder: https://github.com/openschemas/specifications/tree/master/Container
 gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20Container
+edit_url: https://github.com/openschemas/specifications/tree/master/Container/specification.html
+use_cases_url: https://www.github.com/openschemas/spec-container
+version: 0.0.1
+parent_type: SoftwareApplication
+subtitle: Bioschemas specification describing a Container (e.g., Docker, Singularity)
+  used in Scientific Compute
+description: This Container profile specification presents a representation of a Container
+  such as Docker or Singularity that is used in scientific compute.
 hierarchy:
 - Thing
 - CreativeWork
@@ -14,13 +21,13 @@ mapping:
   controlled_vocab: ''
   description: An alias for the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Recommended
-  parent: Thing
   property: alternateName
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: Type of software e.g. database, tool, service. **Note:** Bioschemas
     have removed [URL](http://schema.org/URL) from the Expected Types.
   cardinality: MANY
@@ -28,13 +35,13 @@ mapping:
   description: Type of software application, e.g. 'Game, Multimedia'.
   example: '{   "@type": ["SoftwareApplication", "Container"],   "applicationCategory":
     "singularity" }'
-  expected_types:
-  - Text
   marginality: Optional
-  parent: SoftwareApplication
   property: applicationCategory
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: SoftwareApplication
 - bsc_description: Publication about this software.
   cardinality: MANY
   controlled_vocab: ''
@@ -42,14 +49,14 @@ mapping:
     web page, scholarly article, etc.
   example: '{ "@type": ["SoftwareApplication", "Tool"], "citation": "https://dx.doi.org/10.1016/S0022-2836(05)80360-2"
     }'
-  expected_types:
-  - CreativeWork
-  - Text
   marginality: Recommended
-  parent: CreativeWork
   property: citation
   type: ''
   type_url: ''
+  expected_types:
+  - CreativeWork
+  - Text
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
@@ -57,14 +64,14 @@ mapping:
     to a DataFeed.
   example: '{ "@type": ["SoftwareApplication", "Tool"], "dateCreated": "2108-06-13"
     }'
-  expected_types:
-  - Date
-  - DateTime
   marginality: Optional
-  parent: CreativeWork
   property: dateCreated
   type: ''
   type_url: ''
+  expected_types:
+  - Date
+  - DateTime
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
@@ -72,39 +79,39 @@ mapping:
     the item's entry was modified within a DataFeed.
   example: '{ "@type": ["SoftwareApplication", "Tool"], "dateModified": "2108-08-07"
     }'
-  expected_types:
-  - Date
-  - DateTime
   marginality: Optional
-  parent: CreativeWork
   property: dateModified
   type: ''
   type_url: ''
+  expected_types:
+  - Date
+  - DateTime
+  parent: CreativeWork
 - bsc_description: a linux container
   cardinality: ONE
   controlled_vocab: ''
   description: A description of the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: Thing
   property: description
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
   description: If the file can be downloaded, URL to download the binary.
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "downloadURL": "https://github.com/sacdallago/cellmap"
     }'
-  expected_types:
-  - URL
   marginality: Optional
-  parent: SoftwareApplication
   property: downloadUrl
   type: ''
   type_url: ''
+  expected_types:
+  - URL
+  parent: SoftwareApplication
 - bsc_description: Please choose values from [EDAM:Operation](http://edamontology.org/operation_0004).
   cardinality: MANY
   controlled_vocab: '[EDAM:Operation](http://edamontology.org/operation_0004)'
@@ -112,27 +119,27 @@ mapping:
     by other applications).
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "featureList": ["http://edamontology.org/topic_0821",
     "http://edamontology.org/topic_0128"] }'
-  expected_types:
-  - Text
-  - URL
   marginality: Minimum
-  parent: SoftwareApplication
   property: featureList
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  - URL
+  parent: SoftwareApplication
 - bsc_description: Used to describe tools included into suites/bundles/workflows.
   cardinality: MANY
   controlled_vocab: ''
   description: Indicates an item or CreativeWork that is part of this item, or CreativeWork
     (in some sense).
   example: ''
-  expected_types:
-  - CreativeWork
   marginality: Optional
-  parent: CreativeWork
   property: hasPart
   type: ''
   type_url: ''
+  expected_types:
+  - CreativeWork
+  parent: CreativeWork
 - bsc_description: Unique identifier for the container, typically corresponding to
     a uri to designate a registry source
   cardinality: ONE
@@ -143,15 +150,15 @@ mapping:
     many of these, either as textual strings or as URL (URI) links. See <a href="http://schema.org/docs/datamodel.html#identifierBg">background
     notes</a> for more details.
   example: <username>/<repository>:<tag>@<hash>
+  marginality: Recommended
+  property: identifier
+  type: ''
+  type_url: ''
   expected_types:
   - PropertyValue
   - Text
   - URL
-  marginality: Recommended
   parent: Thing
-  property: identifier
-  type: ''
-  type_url: ''
 - bsc_description: The input format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006)
     concept labels or one of its synonyms.
   cardinality: MANY
@@ -159,13 +166,13 @@ mapping:
   description: ''
   example: '{ "@type": ["SoftwareApplication", "Tool"], "input": ["http://edamontology.org/data_2977",
     "http://edamontology.org/data_2976"] }'
-  expected_types:
-  - URL
   marginality: Recommended
-  parent: Container
   property: input
   type: external
   type_url: http://semanticscience.org/resource/SIO_000230
+  expected_types:
+  - URL
+  parent: Container
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: '[EDAM:Topic](http://edamontology.org/topic_0003)'
@@ -173,13 +180,13 @@ mapping:
     a keywords list are typically delimited by commas.
   example: '{ "@type": ["SoftwareApplication", "Tool"], "ketwords": "Biology, chemistry,
     medicine" }'
-  expected_types:
-  - Text
   marginality: Optional
-  parent: CreativeWork
   property: keywords
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: CreativeWork
 - bsc_description: The applicable software license. **Note:** Bioschemas have changed
     the Expected Types to [URL](http://schema.org/URL) or [Text](http://schema.org/Text).
   cardinality: MANY
@@ -188,26 +195,26 @@ mapping:
     by URL.
   example: '{ "@type": ["SoftwareApplication", "Tool"], "license": "https://www.apache.org/licenses/LICENSE-2.0"
     }'
-  expected_types:
-  - Text
-  - URL
   marginality: Recommended
-  parent: CreativeWork
   property: license
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  - URL
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
   description: The name of the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: Thing
   property: name
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: Operating systems on which the container runs, typically Linux
     derivatives and (for some containers) Windows.
   cardinality: MANY
@@ -215,13 +222,13 @@ mapping:
   description: Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "operatingSystem": ["Windows
     7 or above", "Linux/Unix", "Mac/Apple"] }'
-  expected_types:
-  - Text
   marginality: Optional
-  parent: SoftwareApplication
   property: operatingSystem
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: SoftwareApplication
 - bsc_description: The output format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006)
     concept labels or one of its synonyms.
   cardinality: MANY
@@ -229,13 +236,13 @@ mapping:
   description: ''
   example: '{ "@type": ["SoftwareApplication", "Tool"], "input": ["http://edamontology.org/data_1383",
     "http://edamontology.org/data_1384"] }'
-  expected_types:
-  - URL
   marginality: Recommended
-  parent: Container
   property: output
   type: external
   type_url: http://semanticscience.org/resource/SIO_000229
+  expected_types:
+  - URL
+  parent: Container
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
@@ -243,14 +250,14 @@ mapping:
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "publisher": {     "@type":
     "Organization",     "name": "National Center for Biotechnology Information National
     Library of Medicine",     "alternatName": "NCBI NLM"   } }'
-  expected_types:
-  - Organization
-  - Person
   marginality: Recommended
-  parent: CreativeWork
   property: publisher
   type: ''
   type_url: ''
+  expected_types:
+  - Organization
+  - Person
+  parent: CreativeWork
 - bsc_description: A documentation for the container, typically showing install steps,
     usage, and a changelog.
   cardinality: MANY
@@ -258,13 +265,13 @@ mapping:
   description: Software application help.
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "softwareHelp": "https://biotools.readthedocs.io/en/latest/"
     }'
-  expected_types:
-  - CreativeWork
   marginality: Optional
-  parent: SoftwareApplication
   property: softwareHelp
   type: ''
   type_url: ''
+  expected_types:
+  - CreativeWork
+  parent: SoftwareApplication
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
@@ -274,27 +281,27 @@ mapping:
     runtime).'
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "softwareRequirements":
     "JRE 8.0 or above" }'
-  expected_types:
-  - Text
-  - URL
   marginality: Optional
-  parent: SoftwareApplication
   property: softwareRequirements
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  - URL
+  parent: SoftwareApplication
 - bsc_description: version of the container instance
   cardinality: ONE
   controlled_vocab: ''
   description: Version of the software instance.
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "softwareVersion": "1.0.2"
     }'
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: SoftwareApplication
   property: softwareVersion
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: SoftwareApplication
 - bsc_description: URL of the container, typically associated with a registry that
     shows the ContainerRecipe, vulnerability scans, and other metadata. This property
     can be used on a page listing many containers to indicate each individual container's
@@ -303,25 +310,16 @@ mapping:
   controlled_vocab: ''
   description: URL of the item.
   example: ''
-  expected_types:
-  - URL
   marginality: Minimum
-  parent: Thing
   property: url
   type: ''
   type_url: ''
-name: Container
-parent_type: SoftwareApplication
+  expected_types:
+  - URL
+  parent: Thing
 spec_info:
-  description: This Container profile specification presents a representation of a
-    Container such as Docker or Singularity that is used in scientific compute.
+  version_date: 20180925T150137
   full_example: https://www.github.com/openschemas/specifications/tree/master/Container/examples/
   version: 0.0.1
-  version_date: 20180921T134823
-spec_type: Profile
-status: revision
-subtitle: Bioschemas specification describing a Container (e.g., Docker, Singularity)
-  used in Scientific Compute
-use_cases_url: https://www.github.com/openschemas/spec-container
-version: 0.0.1
----
+  description: This Container profile specification presents a representation of a
+    Container such as Docker or Singularity that is used in scientific compute.

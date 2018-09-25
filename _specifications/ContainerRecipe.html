@@ -1,9 +1,9 @@
 ---
 description: This Container profile specification presents a representation of a Container
   such as Docker or Singularity that is used in scientific compute.
-edit_url: https://github.com/openschemas/specifications/tree/master/Container/specification.html
-gh_folder: https://github.com/openschemas/specifications/tree/master/Container
-gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20Container
+edit_url: https://github.com/openschemas/specifications/tree/master/ContainerRecipe/specification.html
+gh_folder: https://github.com/openschemas/specifications/tree/master/ContainerRecipe
+gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20ContainerRecipe
 hierarchy:
 - Thing
 - CreativeWork
@@ -35,6 +35,34 @@ mapping:
   property: applicationCategory
   type: ''
   type_url: ''
+- bsc_description: The command for a ContainerRecipe is typically a set of extra arguments
+    that are added to the entrypoint in a default running scenario
+  cardinality: MANY
+  controlled_vocab: ''
+  description: The command for a ContainerRecipe is typically a set of extra arguments
+    that are added to the entrypoint in a default running scenario
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: brands
+  type: ''
+  type_url: ''
+- bsc_description: a special list of keywords to describe the underlying technologies
+    (e.g., Docker) that the container recipe affords building.
+  cardinality: MANY
+  controlled_vocab: ''
+  description: a special list of keywords to describe the underlying technologies
+    (e.g., Docker) that the container recipe affords building.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: brands
+  type: ''
+  type_url: ''
 - bsc_description: Publication about this software.
   cardinality: MANY
   controlled_vocab: ''
@@ -48,6 +76,20 @@ mapping:
   marginality: Recommended
   parent: CreativeWork
   property: citation
+  type: ''
+  type_url: ''
+- bsc_description: A ContainerImage is the binary or associated shasum that references
+    a particular grouping of layers to form a complete images.
+  cardinality: ONE
+  controlled_vocab: ''
+  description: A ContainerImage is the binary or associated shasum that references
+    a particular grouping of layers to form a complete images.
+  example: ''
+  expected_types:
+  - ContainerImage
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: ContainerImage
   type: ''
   type_url: ''
 - bsc_description: ''
@@ -105,6 +147,20 @@ mapping:
   property: downloadUrl
   type: ''
   type_url: ''
+- bsc_description: The entrypoint is the executable that is called within the container
+    when the user executes it, typically via a "run" or equivalent command.
+  cardinality: MANY
+  controlled_vocab: ''
+  description: The entrypoint is the executable that is called within the container
+    when the user executes it, typically via a "run" or equivalent command.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: entrypoint
+  type: ''
+  type_url: ''
 - bsc_description: Please choose values from [EDAM:Operation](http://edamontology.org/operation_0004).
   cardinality: MANY
   controlled_vocab: '[EDAM:Operation](http://edamontology.org/operation_0004)'
@@ -131,6 +187,22 @@ mapping:
   marginality: Optional
   parent: CreativeWork
   property: hasPart
+  type: ''
+  type_url: ''
+- bsc_description: A help section is not present for all container technologies, but
+    is typically a blurb of text that can be shown to the user to give detais about
+    runtime usage or similar.
+  cardinality: ONE
+  controlled_vocab: ''
+  description: A help section is not present for all container technologies, but is
+    typically a blurb of text that can be shown to the user to give detais about runtime
+    usage or similar.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: help
   type: ''
   type_url: ''
 - bsc_description: Unique identifier for the container, typically corresponding to
@@ -162,7 +234,7 @@ mapping:
   expected_types:
   - URL
   marginality: Recommended
-  parent: Container
+  parent: ContainerRecipe
   property: input
   type: external
   type_url: http://semanticscience.org/resource/SIO_000230
@@ -178,6 +250,34 @@ mapping:
   marginality: Optional
   parent: CreativeWork
   property: keywords
+  type: ''
+  type_url: ''
+- bsc_description: a list of keywords to describe the ContainerImage that the ContainerRecipe
+    will build
+  cardinality: MANY
+  controlled_vocab: ''
+  description: Keywords or tags used to describe this content. Multiple entries in
+    a keywords list are typically delimited by commas.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: CreativeWork
+  property: keywords
+  type: ''
+  type_url: ''
+- bsc_description: Labels are a list of key, value pairs that encompass named metadata
+    for the container.
+  cardinality: MANY
+  controlled_vocab: ''
+  description: Labels are a list of key, value pairs that encompass named metadata
+    for the container.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Recommended
+  parent: ContainerRecipe
+  property: labels
   type: ''
   type_url: ''
 - bsc_description: The applicable software license. **Note:** Bioschemas have changed
@@ -232,7 +332,7 @@ mapping:
   expected_types:
   - URL
   marginality: Recommended
-  parent: Container
+  parent: ContainerRecipe
   property: output
   type: external
   type_url: http://semanticscience.org/resource/SIO_000229
@@ -310,12 +410,12 @@ mapping:
   property: url
   type: ''
   type_url: ''
-name: Container
+name: ContainerRecipe
 parent_type: SoftwareApplication
 spec_info:
   description: This Container profile specification presents a representation of a
     Container such as Docker or Singularity that is used in scientific compute.
-  full_example: https://www.github.com/openschemas/specifications/tree/master/Container/examples/
+  full_example: https://www.github.com/openschemas/specifications/tree/master/ContainerRecipe/examples/
   version: 0.0.1
   version_date: 20180925T150137
 spec_type: Profile

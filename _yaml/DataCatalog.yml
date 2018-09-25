@@ -1,9 +1,16 @@
----
-description: A guide for how to describe data catalogs/repositories in the life-sciences
-  using Schema.org-like annotation.
-edit_url: https://github.com/openschemas/specifications/tree/master/DataCatalog/specification.html
+name: DataCatalog
+status: revision
+spec_type: Profile
 gh_folder: https://github.com/openschemas/specifications/tree/master/DataCatalog
 gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20DataCatalog
+edit_url: https://github.com/openschemas/specifications/tree/master/DataCatalog/specification.html
+use_cases_url: https://www.github.com/openschemas/spec-container
+version: 0.0.1
+parent_type: CreativeWork
+subtitle: Bioschemas specification for describing data repositories and data catalogues
+  in the life-sciences
+description: A guide for how to describe data catalogs/repositories in the life-sciences
+  using Schema.org-like annotation.
 hierarchy:
 - Thing
 - CreativeWork
@@ -13,53 +20,53 @@ mapping:
   controlled_vocab: ''
   description: An alias for the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Recommended
-  parent: Thing
   property: alternateName
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: CreativeWork:Name,URL
   cardinality: MANY
   controlled_vocab: ''
   description: A citation or reference to another creative work, such as another publication,
     web page, scholarly article, etc.
   example: ''
-  expected_types:
-  - CreativeWork
-  - Text
   marginality: Recommended
-  parent: CreativeWork
   property: citation
   type: ''
   type_url: ''
+  expected_types:
+  - CreativeWork
+  - Text
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
   description: 'A dataset contained in this catalog. Inverse property: [includedInDataCatalog](http://schema.org/includedDataCatalog).'
   example: ''
-  expected_types:
-  - Dataset
   marginality: Recommended
-  parent: DataCatalog
   property: dataset
   type: ''
   type_url: ''
+  expected_types:
+  - Dataset
+  parent: DataCatalog
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
   description: The date on which the CreativeWork was created or the item was added
     to a DataFeed.
   example: ''
-  expected_types:
-  - Date
-  - DateTime
   marginality: Recommended
-  parent: CreativeWork
   property: dateCreated
   type: ''
   type_url: ''
+  expected_types:
+  - Date
+  - DateTime
+  parent: CreativeWork
 - bsc_description: The date on which the data catalog/repository was most recently
     modified.
   cardinality: ONE
@@ -67,26 +74,26 @@ mapping:
   description: The date on which the CreativeWork was most recently modified or when
     the item's entry was modified within a DataFeed.
   example: ''
-  expected_types:
-  - Date
-  - DateTime
   marginality: Optional
-  parent: CreativeWork
   property: dateModified
   type: ''
   type_url: ''
+  expected_types:
+  - Date
+  - DateTime
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
   description: A description of the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: Thing
   property: description
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
@@ -97,14 +104,14 @@ mapping:
     Unregistered or niche file formats can be indicated instead via the most appropriate
     URL, e.g. defining Web page or a Wikipedia entry.
   example: ''
-  expected_types:
-  - Text
-  - URL
   marginality: Optional
-  parent: CreativeWork
   property: fileFormat
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  - URL
+  parent: CreativeWork
 - bsc_description: Unique identifier for the data catalog.
   cardinality: ONE
   controlled_vocab: ''
@@ -114,54 +121,54 @@ mapping:
     many of these, either as textual strings or as URL (URI) links. See <a href="http://schema.org/docs/datamodel.html#identifierBg">background
     notes</a> for more details.
   example: ''
+  marginality: Recommended
+  property: identifier
+  type: ''
+  type_url: ''
   expected_types:
   - PropertyValue
   - Text
   - URL
-  marginality: Recommended
   parent: Thing
-  property: identifier
-  type: ''
-  type_url: ''
 - bsc_description: Use terms from Controlled Vocabularies where possible.
   cardinality: ONE
   controlled_vocab: ''
   description: Keywords or tags used to describe this content. Multiple entries in
     a keywords list are typically delimited by commas.
   example: ''
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: CreativeWork
   property: keywords
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: CreativeWork
 - bsc_description: CreativeWork:Name,URL
   cardinality: ONE
   controlled_vocab: ''
   description: A license document that applies to this content, typically indicated
     by URL.
   example: ''
-  expected_types:
-  - CreativeWork
-  - URL
   marginality: Recommended
-  parent: CreativeWork
   property: license
   type: ''
   type_url: ''
+  expected_types:
+  - CreativeWork
+  - URL
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
   description: The name of the item.
   example: ''
-  expected_types:
-  - Text
   marginality: Minimum
-  parent: Thing
   property: name
   type: ''
   type_url: ''
+  expected_types:
+  - Text
+  parent: Thing
 - bsc_description: Contact information for this data repository/catalog.
   cardinality: MANY
   controlled_vocab: ''
@@ -169,75 +176,66 @@ mapping:
     producer. Another party (a seller) may offer those services or goods on behalf
     of the provider. A provider may also serve as the seller.
   example: ''
-  expected_types:
-  - Organization
-  - Person
   marginality: Minimum
-  parent: CreativeWork
   property: provider
   type: ''
   type_url: ''
+  expected_types:
+  - Organization
+  - Person
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
   description: A publication event associated with the item.
   example: ''
-  expected_types:
-  - PublicationEvent
   marginality: Recommended
-  parent: CreativeWork
   property: publication
   type: ''
   type_url: ''
+  expected_types:
+  - PublicationEvent
+  parent: CreativeWork
 - bsc_description: This is used by validation tools to indentify the profile used.
     You must use the value specified in the Controlled Vocabulary column.
   cardinality: ONE
   controlled_vocab: ''
   description: ''
   example: ''
-  expected_types:
-  - URL
   marginality: Minimum
-  parent: DataCatalog
   property: rdf:type
   type: external
   type_url: https://www.w3.org/1999/02/22-rdf-syntax-ns#type
+  expected_types:
+  - URL
+  parent: DataCatalog
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
   description: The Organization on whose behalf the creator was working.
   example: ''
-  expected_types:
-  - Organization
   marginality: Recommended
-  parent: CreativeWork
   property: sourceOrganization
   type: ''
   type_url: ''
+  expected_types:
+  - Organization
+  parent: CreativeWork
 - bsc_description: ''
   cardinality: ONE
   controlled_vocab: ''
   description: URL of the item.
   example: ''
-  expected_types:
-  - URL
   marginality: Minimum
-  parent: Thing
   property: url
   type: ''
   type_url: ''
-name: DataCatalog
-parent_type: CreativeWork
+  expected_types:
+  - URL
+  parent: Thing
 spec_info:
-  description: A guide for how to describe data catalogs/repositories in the life-sciences
-    using Schema.org-like annotation.
+  version_date: 20180925T150137
   full_example: https://www.github.com/openschemas/specifications/tree/master/DataCatalog/examples/
   version: 0.0.1
-  version_date: 20180921T134823
-spec_type: Profile
-status: revision
-subtitle: Bioschemas specification for describing data repositories and data catalogues
-  in the life-sciences
-use_cases_url: https://www.github.com/openschemas/spec-container
-version: 0.0.1
----
+  description: A guide for how to describe data catalogs/repositories in the life-sciences
+    using Schema.org-like annotation.
