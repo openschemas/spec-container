@@ -10,7 +10,7 @@ specifications:
   spec_type: Profile
   use_cases_url: https://www.github.com/openschemas/spec-container
   version: 0.0.1
-  parent_type: Container
+  parent_type: SoftwareApplication
 - name: DataCatalog 
   status: revision
   spec_type: Profile
