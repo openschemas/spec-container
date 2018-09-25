@@ -8,10 +8,9 @@ This is an instance of an [openbases](https://openbases.github.io) builder
 to generate a schema.org specification using [map2model](https://www.github.com/openschemas/map2model) for the following entities:
 
  - [Container](specifications/Container)
- - [ContainerImage](specifications/ContainerImage)
  - [ContainerRecipe](specifications/ContainerRecipe)
- - [ContainerDistribution](specifications/ContainerDistribution)
 
+We will be adding `ContainerImage` and `ContainerDistribution` shortly!
 You can also use it as a template, and replace the "Container" entries with your own specification!
 
 ## Usage
