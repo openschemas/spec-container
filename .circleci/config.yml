@@ -76,7 +76,9 @@ schema: &schema
     command: |
         source ${BASH_ENV}
         cd /tmp/src
-        echo "1. Starting OpenBases Schema Builder!"
+        echo "0. Pulling latest OpenBases Schema Builder!"
+        echo "docker pull ${OPENBASES_CONTAINER}"
+        docker pull ${OPENBASES_CONTAINER}
         echo "docker run --name schema  --entrypoint bash -dt ${OPENBASES_CONTAINER}"
         docker run --name schema  --entrypoint bash -dt "${OPENBASES_CONTAINER}"
         docker exec schema rm -rf /data/*
