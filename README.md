@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/openschemas/spec-container.svg?style=svg)](https://circleci.com/gh/openschemas/spec-container)
 
+![https://github.com/openschemas/spec-template/raw/master/img/hexagon_square_small.png](https://github.com/openschemas/spec-template/raw/master/img/hexagon_square_small.png)
+
 This is an instance of an [openbases](https://openbases.github.io) builder
 to generate a schema.org specification using [map2model](https://www.github.com/openschemas/map2model) for the following entities:
 
