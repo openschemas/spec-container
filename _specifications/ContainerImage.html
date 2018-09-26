@@ -1,9 +1,9 @@
 ---
 description: This Container profile specification presents a representation of a Container
   such as Docker or Singularity that is used in scientific compute.
-edit_url: https://github.com/openschemas/specifications/tree/master/Container/specification.html
-gh_folder: https://github.com/openschemas/specifications/tree/master/Container
-gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20Container
+edit_url: https://github.com/openschemas/specifications/tree/master/ContainerImage/specification.html
+gh_folder: https://github.com/openschemas/specifications/tree/master/ContainerImage
+gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20ContainerImage
 hierarchy:
 - Thing
 - CreativeWork
@@ -19,6 +19,20 @@ mapping:
   marginality: Recommended
   parent: Thing
   property: alternateName
+  type: ''
+  type_url: ''
+- bsc_description: This OPTIONAL property contains arbitrary metadata for the image
+    manifest. This OPTIONAL property MUST use the annotation rules.
+  cardinality: MANY
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: This OPTIONAL property contains arbitrary metadata for the image manifest.
+    This OPTIONAL property MUST use the annotation rules.
+  example: ''
+  expected_types:
+  - Text
+  marginality: Optional
+  parent: ContainerImage
+  property: annotations
   type: ''
   type_url: ''
 - bsc_description: Type of software e.g. database, tool, service. **Note:** Bioschemas
@@ -48,6 +62,33 @@ mapping:
   marginality: Recommended
   parent: CreativeWork
   property: citation
+  type: ''
+  type_url: ''
+- bsc_description: ''
+  cardinality: ONE
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: This REQUIRED property references a configuration object for a container,
+    by digest.
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: config
+  type: ''
+  type_url: ''
+- bsc_description: ''
+  cardinality: ONE
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: This descriptor property has additional restrictions for config.
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: configMediaType
   type: ''
   type_url: ''
 - bsc_description: ''
@@ -152,6 +193,19 @@ mapping:
   property: identifier
   type: ''
   type_url: ''
+- bsc_description: The media type of the container image
+  cardinality: ONE
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/media-types.md
+  description: The media type of the container image
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: ImageMediaType
+  type: external
+  type_url: https://github.com/opencontainers/image-spec/blob/master/media-types.md
 - bsc_description: The input format of the data. Must be one of the [EDAM:Data](http://edamontology.org/data_0006)
     concept labels or one of its synonyms.
   cardinality: MANY
@@ -162,7 +216,7 @@ mapping:
   expected_types:
   - URL
   marginality: Recommended
-  parent: Container
+  parent: ContainerImage
   property: input
   type: external
   type_url: http://semanticscience.org/resource/SIO_000230
@@ -180,6 +234,40 @@ mapping:
   property: keywords
   type: ''
   type_url: ''
+- bsc_description: Each item in the array MUST be a descriptor. The array MUST have
+    the base layer at index 0. Subsequent layers MUST then follow in stack order (i.e.
+    from layers[0] to layers[len(layers)-1]). The final filesystem layout MUST match
+    the result of applying the layers to an empty directory. The ownership, mode,
+    and other attributes of the initial empty directory are unspecified.
+  cardinality: MANY
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: Each item in the array MUST be a descriptor. The array MUST have the
+    base layer at index 0. Subsequent layers MUST then follow in stack order (i.e.
+    from layers[0] to layers[len(layers)-1]). The final filesystem layout MUST match
+    the result of applying the layers to an empty directory. The ownership, mode,
+    and other attributes of the initial empty directory are unspecified.
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: layers
+  type: ''
+  type_url: ''
+- bsc_description: This descriptor property has additional restrictions for layers[].
+  cardinality: MANY
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: This descriptor property has additional restrictions for layers[].
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: layersMediaType
+  type: ''
+  type_url: ''
 - bsc_description: The applicable software license. **Note:** Bioschemas have changed
     the Expected Types to [URL](http://schema.org/URL) or [Text](http://schema.org/Text).
   cardinality: MANY
@@ -194,6 +282,23 @@ mapping:
   marginality: Recommended
   parent: CreativeWork
   property: license
+  type: ''
+  type_url: ''
+- bsc_description: This property is reserved for use, to maintain compatibility. When
+    used, this field contains the media type of this document, which differs from
+    the descriptor use of mediaType.
+  cardinality: ONE
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: This property is reserved for use, to maintain compatibility. When
+    used, this field contains the media type of this document, which differs from
+    the descriptor use of mediaType.
+  example: ''
+  expected_types:
+  - Text
+  - URL
+  marginality: Recommended
+  parent: ContainerImage
+  property: mediaType
   type: ''
   type_url: ''
 - bsc_description: ''
@@ -232,7 +337,7 @@ mapping:
   expected_types:
   - URL
   marginality: Recommended
-  parent: Container
+  parent: ContainerImage
   property: output
   type: external
   type_url: http://semanticscience.org/resource/SIO_000229
@@ -251,6 +356,25 @@ mapping:
   property: publisher
   type: ''
   type_url: ''
+- bsc_description: This REQUIRED property specifies the image manifest schema version.
+    For this version of the specification, this MUST be 2 to ensure backward compatibility
+    with older versions of Docker. The value of this field will not change. This field
+    MAY be removed in a future version of the specification.
+  cardinality: ONE
+  controlled_vocab: https://github.com/opencontainers/image-spec/blob/master/manifest.md
+  description: Indicates (by URL or string) a particular version of a schema used
+    in some CreativeWork. For example, a document could declare a schemaVersion using
+    an URL such as http://schema.org/version/2.0/ if precise indication of schema
+    version was required by some application.
+  example: ''
+  expected_types:
+  - Number
+  - Text
+  marginality: Recommended
+  parent: CreativeWork
+  property: schemaVersion
+  type: ''
+  type_url: https://github.com/opencontainers/image-spec/blob/master/manifest.md
 - bsc_description: A documentation for the container, typically showing install steps,
     usage, and a changelog.
   cardinality: MANY
@@ -310,17 +434,17 @@ mapping:
   property: url
   type: ''
   type_url: ''
-name: Container
+name: ContainerImage
 parent_type: SoftwareApplication
 spec_info:
   description: This Container profile specification presents a representation of a
     Container such as Docker or Singularity that is used in scientific compute.
-  full_example: https://www.github.com/openschemas/specifications/tree/master/Container/examples/
+  full_example: https://www.github.com/openschemas/specifications/tree/master/ContainerImage/examples/
   version: 0.0.1
   version_date: 20180926T073710
 spec_type: Profile
 status: revision
-subtitle: Bioschemas specification describing a Container (e.g., Docker, Singularity)
+subtitle: Bioschemas specification describing a ContainerImage (e.g., Docker, Singularity)
   used in Scientific Compute
 use_cases_url: https://www.github.com/openschemas/spec-container
 version: 0.0.1

@@ -418,7 +418,7 @@ mapping:
   - URL
   parent: Thing
 spec_info:
-  version_date: 20180925T150137
+  version_date: 20180926T073710
   full_example: https://www.github.com/openschemas/specifications/tree/master/ContainerRecipe/examples/
   version: 0.0.1
   description: This Container profile specification presents a representation of a
