@@ -7,7 +7,7 @@ gh_tasks: https://github.com/openschemas/specifications/labels/type%3A%20Contain
 hierarchy:
 - Thing
 - CreativeWork
-- SoftwareApplication
+- SoftwareSourceCode
 mapping:
 - bsc_description: ''
   cardinality: MANY
@@ -31,7 +31,7 @@ mapping:
   expected_types:
   - Text
   marginality: Optional
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: applicationCategory
   type: ''
   type_url: ''
@@ -137,13 +137,14 @@ mapping:
 - bsc_description: ''
   cardinality: MANY
   controlled_vocab: ''
-  description: If the file can be downloaded, URL to download the binary.
+  description: If the file can be downloaded, URL to download the binary. For containers
+    without an exposed wget url or similar, this can be the pull command.
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "downloadURL": "https://github.com/sacdallago/cellmap"
     }'
   expected_types:
   - URL
   marginality: Optional
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: downloadUrl
   type: ''
   type_url: ''
@@ -172,7 +173,7 @@ mapping:
   - Text
   - URL
   marginality: Minimum
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: featureList
   type: ''
   type_url: ''
@@ -318,7 +319,7 @@ mapping:
   expected_types:
   - Text
   marginality: Optional
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: operatingSystem
   type: ''
   type_url: ''
@@ -361,7 +362,7 @@ mapping:
   expected_types:
   - CreativeWork
   marginality: Optional
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: softwareHelp
   type: ''
   type_url: ''
@@ -371,14 +372,14 @@ mapping:
   description: 'Component dependency requirements for application. This includes runtime
     environments and shared libraries that are not included in the application distribution
     package, but required to run the application (Examples: DirectX, Java or .NET
-    runtime).'
+    runtime). Supersedes requirements.'
   example: '{   "@type": ["SoftwareApplication", "Tool"],   "softwareRequirements":
     "JRE 8.0 or above" }'
   expected_types:
   - Text
   - URL
   marginality: Optional
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: softwareRequirements
   type: ''
   type_url: ''
@@ -391,7 +392,7 @@ mapping:
   expected_types:
   - Text
   marginality: Minimum
-  parent: SoftwareApplication
+  parent: ContainerRecipe
   property: softwareVersion
   type: ''
   type_url: ''
@@ -411,13 +412,13 @@ mapping:
   type: ''
   type_url: ''
 name: ContainerRecipe
-parent_type: SoftwareApplication
+parent_type: SoftwareSourceCode
 spec_info:
   description: This Container profile specification presents a representation of a
     Container such as Docker or Singularity that is used in scientific compute.
   full_example: https://www.github.com/openschemas/specifications/tree/master/ContainerRecipe/examples/
   version: 0.0.1
-  version_date: 20180926T073710
+  version_date: 20181021T213222
 spec_type: Profile
 status: revision
 subtitle: Bioschemas specification describing a Container (e.g., Docker, Singularity)
