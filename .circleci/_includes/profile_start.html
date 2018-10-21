@@ -11,19 +11,16 @@
 <br />
 <input id="tab1" type="radio" name="tabs" checked>
 <label for="tab1">Description</label>
-<input id="tab2" type="radio" name="tabs">
-<label for="tab2">Contributors</label>
-<input id="tab3" type="radio" name="tabs">
-<label for="tab3">Links</label>
 <section id="description" class="tabs">
+
    <!-- Bioschemas <a href="/specifications/">specifications and types list.</a> -->
    <h3>Description</h3>
    <p>{{ page.spec_info.description }}</p>
    <br />
    <h3>Schema.org hierarchy</h3>
    This is a new {{ page.spec_type }} that fits into the schema.org hierarchy as follows:
-   <br />
-   <br />
+   <br/>
+   <br/>
    {% for branch_name in page.hierarchy %}
    <a href="http://schema.org/{{ branch_name }}">{{ branch_name }}</a>
    {%if forloop.index < page.hierarchy.size%}
