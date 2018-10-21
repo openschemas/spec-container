@@ -1,19 +1,13 @@
 specifications:
-- name: Container
-  status: revision
-  spec_type: Profile
-  use_cases_url: https://www.github.com/openschemas/spec-container
-  version: 0.0.1
-  parent_type: SoftwareApplication
 - name: ContainerRecipe
   status: revision
   spec_type: Profile
   use_cases_url: https://www.github.com/openschemas/spec-container
   version: 0.0.1
-  parent_type: SoftwareApplication
+  parent_type: SoftwareSourceCode
 - name: ContainerImage
   status: revision
   spec_type: Profile
   use_cases_url: https://www.github.com/openschemas/spec-container
   version: 0.0.1
-  parent_type: SoftwareApplication
+  parent_type: Thing
