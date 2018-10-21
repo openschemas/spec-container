@@ -18,9 +18,8 @@ the repository here. </p>
       <thead>
       <tr>
       <th>Name</th>
-      <th style="text-align: center;">Use Cases</th>
+      <th style="text-align: center;">Use Cases and Examples</th>
       <th style="text-align: center;">Task &amp; Issues</th>
-      <th style="text-align: center;">Examples</th>
       </tr>
       </thead>
       <tbody>
@@ -44,54 +43,8 @@ the repository here. </p>
             </a>
             {% endif %}
           </td>
-          <td class="spec_links">
-            {% if spec.spec_info.full_example == '' %}
-            <a>
-            <img src="https://openschemas.github.io/assets/images/spec_examples.png" alt="View {{ spec.spec_info.property }} Examples" style="filter: grayscale(100%);">
-            </a>
-            {% else %}
-            <a href="{{spec.spec_info.full_example}}" target="_blank">
-            <img src="https://openschemas.github.io/assets/images/spec_examples.png" alt="View {{ spec.spec_info.property }} Examples">
-            </a>
-            {% endif %}
-          </td>
       </tr>
       {% endfor %}
       </tbody>
   </table>
 </div>
-
-
-<h2>Types</h2>
-<p>We have found it necessary to propose some additional types to the Schema.org vocabulary. 
-    These are specified below and are expected to be pushed up to Schema.org once they have stabilised. 
-    These types are used as the generic base for some of the profile specifications, such as protein.
-    Again, working versions are published in the <a href="/drafts">drafts</a> page.</p>
-
-<table class="bioschemas_spec_list" style="width: 100%; margin-left: auto; margin-right: auto; text-align: center;">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th style="text-align: center;">Task &amp; Issues</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% assign type_specs = site.types | where: 'spec_type', 'Type'%}
-    {% for spec in  type_specs%}
-    <tr>
-        <th><a href="/types/{{spec.name}}" title="{{spec.subtitle}}">{{ spec.name }}</a><br />(v{{spec.version}})<br />{{spec.dateModified}}</th>
-        <td class="spec_links">
-            {% if spec.gh_tasks == '' %}
-              <a>
-                <img src="https://openschemas.github.io/assets/images/specs_tasks.png" alt="BioSchemas {{ spec.name }} Github Tasks or Issues" style="filter: grayscale(100%);">
-              </a>
-            {% else %}
-              <a href="{{spec.gh_tasks}}">
-                <img src="https://openschemas.github.io/assets/images/specs_tasks.png" alt="BioSchemas {{ spec.name }} Github Tasks or Issues">
-              </a>
-            {% endif %}
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
